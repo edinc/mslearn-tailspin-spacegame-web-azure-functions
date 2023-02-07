@@ -91,14 +91,14 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: '$(ServiceConnection)'
+              azureSubscription: 'funtions-lab-service-connection'
               appName: '$(WebAppNameDev)'
               appType: webAppLinux
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
           - task: AzureFunctionApp@1
             displayName: 'Azure Function Deploy: leaderboard'
             inputs:
-              azureSubscription: '$(ServiceConnection)'
+              azureSubscription: 'funtions-lab-service-connection'
               appType: functionAppLinux
               appName: '$(LeaderboardAppNameDev)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.LeaderboardFunction.zip'
@@ -107,7 +107,7 @@ stages:
           - task: AzureAppServiceSettings@1
             displayName: 'Update web app settings'
             inputs:
-              azureSubscription: '$(ServiceConnection)'
+              azureSubscription: 'funtions-lab-service-connection'
               appName: $(WebAppNameDev)
               resourceGroupName: $(ResourceGroupNameDev)
               appSettings: |
@@ -138,14 +138,14 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: '$(ServiceConnection)'
+              azureSubscription: 'funtions-lab-service-connection'
               appName: '$(WebAppNameTest)'
               appType: webAppLinux
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
           - task: AzureFunctionApp@1
             displayName: 'Azure Function Deploy: leaderboard'
             inputs:
-              azureSubscription: '$(ServiceConnection)'
+              azureSubscription: 'funtions-lab-service-connection'
               appType: functionAppLinux
               appName: '$(LeaderboardAppNameTest)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.LeaderboardFunction.zip'
@@ -154,7 +154,7 @@ stages:
           - task: AzureAppServiceSettings@1
             displayName: 'Update web app settings'
             inputs:
-              azureSubscription: '$(ServiceConnection)'
+              azureSubscription: 'funtions-lab-service-connection'
               appName: $(WebAppNameTest)
               resourceGroupName: $(ResourceGroupNameTest)
               appSettings: |
@@ -185,14 +185,14 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-              azureSubscription: '$(ServiceConnection)'
+              azureSubscription: 'funtions-lab-service-connection'
               appName: '$(WebAppNameProd)'
               appType: webAppLinux
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
           - task: AzureFunctionApp@1
             displayName: 'Azure Function Deploy: leaderboard'
             inputs:
-              azureSubscription: '$(ServiceConnection)'
+              azureSubscription: 'funtions-lab-service-connection'
               appType: functionAppLinux
               appName: '$(LeaderboardAppNameProd)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.LeaderboardFunction.zip'
@@ -201,7 +201,7 @@ stages:
           - task: AzureAppServiceSettings@1
             displayName: 'Update web app settings'
             inputs:
-              azureSubscription: '$(ServiceConnection)'
+              azureSubscription: 'funtions-lab-service-connection'
               appName: $(WebAppNameProd)
               resourceGroupName: $(ResourceGroupNameProd)
               appSettings: |
